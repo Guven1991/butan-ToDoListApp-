@@ -1,6 +1,6 @@
 package com.todolist.butan.service;
 
-import com.todolist.butan.dbModel.Task;
+import com.todolist.butan.dbmodel.Task;
 import com.todolist.butan.dto.TaskDto;
 import com.todolist.butan.exception.TaskNotFoundException;
 import com.todolist.butan.repository.TaskRepository;
@@ -23,6 +23,8 @@ public class TaskService {
 
 
     public TaskDto createTask(TaskDto taskDto) {
+
+        taskDto.setCompleted(false);
 
         Task task = taskRepository.save(dozerBeanMapper.map(taskDto, Task.class));
 

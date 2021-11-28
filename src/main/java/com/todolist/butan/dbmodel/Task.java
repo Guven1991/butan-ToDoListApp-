@@ -1,12 +1,8 @@
-package com.todolist.butan.dbModel;
+package com.todolist.butan.dbmodel;
 
 import lombok.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name= "task")
@@ -17,7 +13,11 @@ import javax.persistence.Table;
 @NoArgsConstructor
 public class Task {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator ="sequence_task")
+    @SequenceGenerator(schema = "public", sequenceName = "sequence_task", allocationSize = 1, name = "sequence_task")
     @Column(name = "id", nullable = false)
     private Integer id;
 

@@ -1,21 +1,17 @@
-package com.todolist.butan.dto;
+package com.todolist.butan.request;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskDto {
+public class TaskCreateRequest {
 
-    private Integer id;
     private String name;
-    private boolean isCompleted;
-    private Date createDate;
-    private Date updateDate;
+
 }

@@ -1,6 +1,6 @@
 package com.todolist.butan.repository;
 
-import com.todolist.butan.dbModel.Task;
+import com.todolist.butan.dbmodel.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

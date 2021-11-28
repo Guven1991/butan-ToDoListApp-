@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskResponce {
+public class TaskResponse {
 
     private Integer id;
     private String name;

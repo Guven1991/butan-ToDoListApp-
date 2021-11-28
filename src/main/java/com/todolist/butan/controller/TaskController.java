@@ -1,8 +1,9 @@
 package com.todolist.butan.controller;
 
 import com.todolist.butan.dto.TaskDto;
-import com.todolist.butan.request.TaskRequest;
-import com.todolist.butan.responce.TaskResponce;
+import com.todolist.butan.request.TaskCreateRequest;
+import com.todolist.butan.request.TaskUpdateRequest;
+import com.todolist.butan.responce.TaskResponse;
 import com.todolist.butan.service.TaskService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,17 +24,17 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity<TaskResponce> createTask(@RequestBody TaskRequest taskRequest) {
-        TaskDto taskDto = taskService.createTask(dozerBeanMapper.map(taskRequest, TaskDto.class));
-        return ResponseEntity.ok(dozerBeanMapper.map(taskDto, TaskResponce.class));
+    public ResponseEntity<TaskResponse> createTask(@RequestBody TaskCreateRequest taskCreateRequest) {
+        TaskDto taskDto = taskService.createTask(dozerBeanMapper.map(taskCreateRequest, TaskDto.class));
+        return ResponseEntity.ok(dozerBeanMapper.map(taskDto, TaskResponse.class));
     }
 
     @GetMapping
-    public ResponseEntity<List<TaskResponce>> getAllTask() {
+    public ResponseEntity<List<TaskResponse>> getAllTask() {
         List<TaskDto> taskDtoList = taskService.getAllTask();
-        List<TaskResponce> taskResponceList = taskDtoList.stream().map(task ->
-                dozerBeanMapper.map(task, TaskResponce.class)).collect(Collectors.toList());
-        return ResponseEntity.ok(taskResponceList);
+        List<TaskResponse> taskResponseList = taskDtoList.stream().map(task ->
+                dozerBeanMapper.map(task, TaskResponse.class)).collect(Collectors.toList());
+        return ResponseEntity.ok(taskResponseList);
     }
 
     @DeleteMapping("/{id}")
@@ -43,10 +44,10 @@ public class TaskController {
     }
 
     @PutMapping
-    public ResponseEntity<TaskResponce> updateTask(@RequestBody TaskRequest taskRequest) {
+    public ResponseEntity<TaskResponse> updateTask(@RequestBody TaskUpdateRequest taskUpdateRequest) {
 
-        TaskDto taskDto = taskService.updateTask(dozerBeanMapper.map(taskRequest, TaskDto.class));
-        return ResponseEntity.ok(dozerBeanMapper.map(taskDto,TaskResponce.class));
+        TaskDto taskDto = taskService.updateTask(dozerBeanMapper.map(taskUpdateRequest, TaskDto.class));
+        return ResponseEntity.ok(dozerBeanMapper.map(taskDto, TaskResponse.class));
 
     }
 }

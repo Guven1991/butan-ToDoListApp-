@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskRequest {
+public class TaskUpdateRequest {
 
     private Integer id;
     private String name;
     private boolean isCompleted;
+
 }
