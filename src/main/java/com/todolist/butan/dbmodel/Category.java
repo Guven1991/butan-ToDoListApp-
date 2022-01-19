@@ -29,7 +29,7 @@ public class Category implements Serializable{
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy="category")
+    @OneToMany(mappedBy="category", cascade = CascadeType.REMOVE)
     private Set<Task> tasks;
 
 }

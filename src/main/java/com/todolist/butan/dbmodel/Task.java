@@ -28,7 +28,7 @@ public class Task {
     @Column(name = "is_completed")
     private boolean isCompleted;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Category category;
 
 }
