@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,7 +63,8 @@ public class CategoryServiceTest {
     @Test
     public void getAllCategory(){
 
-      List<Category> categoryList = List.of(category);
+      List<Category> categoryList = new ArrayList<>();
+      categoryList.add(category);
       when(categoryRepository.findAll()).thenReturn(categoryList);
       List<CategoryDto> categoryDtoList = categoryService.getAllCategory();
 
