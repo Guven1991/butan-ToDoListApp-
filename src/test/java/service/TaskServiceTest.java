@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,7 +64,8 @@ public void init(){
 
     @Test
     public void getAllTask(){
-        List<Task> taskList =  List.of(task);
+        List<Task> taskList = new ArrayList<>();
+        taskList.add(task);
 
         when(taskRepository.findAll()).thenReturn(taskList);
 
