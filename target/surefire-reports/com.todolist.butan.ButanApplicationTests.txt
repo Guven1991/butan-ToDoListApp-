@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.todolist.butan.ButanApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.618 s - in com.todolist.butan.ButanApplicationTests
